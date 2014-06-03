@@ -94,3 +94,6 @@ AVPlayerViewController -> AVPlayer -> AVPlayerItem -> AVAsset
 - AVPlayer and AVPlayerItem
 
 Sorry, I didn't take very good notes in this session. There was quite a bit of code in the slides.
+
+##Intro to Swift
+- See the iBook here: https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11

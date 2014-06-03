@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ListViewController: UIViewController
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     var sampleProperty: NSString?
     
+    var tableView: UITableView
+    
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
     {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.sampleProperty = "Hello, World"
+        self.tableView = UITableView(frame: CGRectMake(0, 0, 320, 568), style: UITableViewStyle.Plain)
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     override func viewDidLoad()
@@ -29,4 +32,5 @@ class ListViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
