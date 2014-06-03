@@ -19,7 +19,6 @@ let urlRequest: NSURLRequest = NSURLRequest(URL: requestUrl)
 let possibleNumber = "123"
 
 let convertedNumber = possibleNumber.toInt()
-let convertedNumber2 = 123
 
 if convertedNumber
 {
@@ -30,11 +29,11 @@ else
     println("\(possibleNumber) could not be converted to an integer")
 }
 
-if convertedNumber2
-{
-    println("\(possibleNumber) has an integer value of \(convertedNumber2!)")
-}
-else
-{
-    println("\(possibleNumber) could not be converted to an integer")
-}
+let possibleString: String? = "An optional string"
+println(possibleString)
+
+let assumedString: String! = "An implicitly unwrapped optional string."
+println(assumedString)
+
+let anotherString: String = "Another string"
+println(anotherString)

@@ -3,6 +3,7 @@ WWDC14-Notes
 
 Notes from WWDC14
 
+# Tuesday 6/3/14
 ##What's New in Xcode 6
 
 **@IBInspectable (?) **
@@ -79,3 +80,17 @@ FYI, sounds like new iPhone height will be same as iPad width or height
 - API to get the floor a user is one
 - Power saving location updates
 - Users can now choose to approve location only when they are in the app
+
+##Mastering Modern Media Playback
+- MPMediaPlayer is not going to be deprecated but it is suggested devs move to AVKit
+
+AVPlayerViewController -> AVPlayer -> AVPlayerItem -> AVAsset
+                        AVQueuePlayer -< AVPlayerItems -> AVAsset
+
+- Use KVO observing to get AVAsset properties
+    - Only loads that property, not the entire asset
+    - Make sure the request is asynchronous. Failing to do so will cause serious perf issues.
+    - Use a completion handler block
+- AVPlayer and AVPlayerItem
+
+Sorry, I didn't take very good notes in this session. There was quite a bit of code in the slides.
