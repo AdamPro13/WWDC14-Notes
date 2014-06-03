@@ -97,3 +97,68 @@ Sorry, I didn't take very good notes in this session. There was quite a bit of c
 
 ##Intro to Swift
 - See the iBook here: https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11
+
+##Taking Core Location Indoors
+**Intro**
+- Much less accurate in Urban Canyons
+    - Use Wi-Fi to help mitigate this
+- Not great indoors (gives altitude, not floors)
+
+**Indoor positioning**
+- Uses:
+    - RF Parametric data
+    - Motion sensors
+- Turns down GPS when it think you're indoors
+- Why Indoors?
+    - Directories
+    - Venue Maps
+    - Some interactivity
+    - Way-finding
+- Need Wi-fi on, device unlocked
+- Uses same Core Location API
+    - Floor number property is added to API
+- Three coordinates to consider
+    - Geographic, floor plan, & ?
+- anchor point = latitude/longitude + floorplan pixels
+- Scale - we need pixelsPerMeter
+- Enabled in:
+    - California Academy of Sciences, SF
+    - Westfield Centre, SF
+    - Mineta San Jose International Airport, SJ
+- Discover Your App
+    - Advertise at your venue
+    - App Store - Near Me
+- Continuity
+    - If app is installed, it will show up in bottom left corner of lock screen
+
+**Indoor Positioning and iBeacon**
+- Use iBeacons to notify users of your app
+
+```
+[self.locationManager startMonitoringForRegion:beaconRegion];
+
+- (void)locationManager:didEnterRegion:
+```
+```
+[self.locationManager startRangingBeaconsInRegion:beaconRegion];
+
+- (void)locationManager:didRangeBeacons:inRegion:
+
+beacon.proximity
+beacon.major
+beacon.minor
+```
+**Security Guidelines:**
+- Strict security and privacy guidelines
+    - Request location only as you need it
+    - When in Use authorization
+    - Have a clear purpose string
+NOTE: Go watch "What's new in Core Location"
+
+Maps Connect
+Indoor Positioning - Sign up
+http://capsconnect.apple.com
+
+Q's:
+- Does is use Apple Maps to know what building you're in?
+- Does it take things like missing floors into account (i.e. floor 13)?
