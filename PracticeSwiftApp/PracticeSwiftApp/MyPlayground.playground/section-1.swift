@@ -1,99 +1,86 @@
-// Playground - noun: a place where people can play
-
 import Cocoa
-import Foundation
 
-//class ResponseHandler : NSURLConnectionDelegate
-//{
-//    
-//}
-
-var str = "Hello, playground"
-
-var requestUrl: NSURL = NSURL(string: "www.google.com")
-
-let urlRequest: NSURLRequest = NSURLRequest(URL: requestUrl)
-
-//let urlConnection: NSURLConnection = NSURLConnection(request: urlRequest, delegate: self)
-
-let possibleNumber = "123"
-
-let convertedNumber = possibleNumber.toInt()
-
-if convertedNumber
-{
-    println("\(possibleNumber) has an integer value of \(convertedNumber!)")
+func greet(name: String, special: String) -> String {
+    return "Hello \(name), today' special is \(special)."
 }
-else
+greet("Bob", "bologna")
+
+func sumOf(numbers: Int...) -> Int
 {
-    println("\(possibleNumber) could not be converted to an integer")
-}
-
-let possibleString: String? = "An optional string"
-println(possibleString)
-
-let assumedString: String! = "An implicitly unwrapped optional string."
-println(assumedString)
-
-let anotherString: String = "Another string"
-println(anotherString)
-
-let apples = 3
-let oranges = 5
-let name = "Adam"
-let halfFruit: Float = 1.5
-let appleSummary = "I have \(apples) apples."
-let fruitSummary = "I have \(apples + oranges) pieces of fruit."
-let summary = "\(name) has \(halfFruit) pieces of fruit"
-
-var shoppingList = ["catfish", "water", "tulips", "blue paint"]
-shoppingList[1] = "bottle of water"
-println(shoppingList)
-var shoppingListCopy = shoppingList.copy()
-println(shoppingListCopy)
-
-let individualScores = [75, 43, 103, 87, 12]
-var teamScore = 0
-
-for score in individualScores
-{
-    if (score > 50)
+    var sum = 0
+    for number in numbers
     {
-        teamScore += 3
+        sum += number
+    }
+    
+    return sum
+}
+
+sumOf()
+sumOf(42, 597, 12)
+
+func average(numbers: Int...) -> Int
+{
+    var sum = 0
+    
+    for number in numbers
+    {
+        sum += number
+    }
+    
+    if numbers.count > 0
+    {
+        return sum/numbers.count
     }
     else
     {
-        teamScore += 1
+        return 0;
     }
 }
 
-teamScore
+average()
+average(2,3,4,7)
 
-var optionalString: String? = "Hello"
-optionalString == nil
+var numbers = [20, 19, 7, 12]
 
-var optionalName: String? = "John Appleseed"
-var greeting = "Hello!"
+numbers.map({
+    (number : Int) -> Int in
+    let result = 3 * number
+    
+    if (number % 2 == 1)
+    {
+        return 0;
+    }
+    else
+    {
+     return result
+    }
+})
 
-if let newName = optionalName
+numbers.map({number in 3 * number})
+println(numbers)
+
+class Shape
 {
-    greeting = "Hello, \(newName)"
+    var numberOfSides = 0
+    
+    let title = "Shape"
+    
+    func simpleDescription() -> String
+    {
+        return "A shape with \(numberOfSides) sides."
+    }
+    
+    func setTitle(name:String)
+    {
+        
+    }
 }
 
-// NOTE: If you switch newName to nil, control statement will
-// evaluate to false
+var shape = Shape()
+shape.numberOfSides = 3
 
-let vegetable = "red pepper"
+var cheers = "Cheers! "
+var 🍻 = "Beer"
 
-switch vegetable
-{
-    case "celery":
-        let vegetableComment = "Add some raisins and make ants on a log."
-    case "cucumber", "watercress":
-        let vegetableComment = "That would make a good tea sandwich."
-    case let x where x.hasSuffix("pepper"):
-        let vegetableComment = "Is it a spicy \(x)?"
-    default:
-        let vegetableComment = "Everything tastes good in soup."
-}
-
+println()
