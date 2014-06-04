@@ -199,3 +199,14 @@ Q's:
 ##Integrating Swift with Objective-C
 
 - This was very example-based. Watch the video online.
+
+##Debugging in Xcode 6
+- Back trace will now go across threads
+**Why are the Icons Gray?**
+- Historical
+- No console interaction
+- No frame variables
+**Pending Blocks**
+- Queues will now show what blocks have been added to the queue
+
+NOTE: Most of this had been mentioned in previous sessions
