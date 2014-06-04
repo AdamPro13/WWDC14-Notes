@@ -273,3 +273,92 @@ NOTE: Most of this had been mentioned in previous sessions
 - REPL can execute in your process
     - Stop at breakpoint
     - (lldb) repl
+- *there was more on playgrounds that I didn't get in time*
+
+##Intermediate Swift
+**Optionals**
+- Why?
+    - EXAMPLE: If user is inputing age, you need to convert to int. If it's not
+        convertible, what would it return? Too many nil/null/NSNotFound values
+**Non-optional types**
+- Strings, ints, floats, etc. can't be ```nil```
+```
+for (index, value) in enumerate(array) {
+}
+```
+- NOTE: ```enumerate()``` will return a tuple with index & value
+- Forcing unwrapping will result in run-time error
+**Optional Chaining**
+```
+addressNumber = paul.residence?.addess?.buildingNumber?.toInt()
+```
+```
+if let addressNumber = paul.residence?.addess?.buildingNumber?.toInt() {
+    addToDatabase("Paul", addressNumber)
+}
+```
+**Memory Management**
+- Swift built on ARC
+- No need for pointer syntax or ```alloc```
+- When you create a variable, it +1s a reference count
+- Ownership
+    - Example: Does renter own apt? Does apt own renter?
+        - Reference cycle
+    - ```weak``` references for situations like this
+    - ```weak``` references are optional values
+    - Binding the optional produces a strong reference
+    - ```unowned``` references are required for object to live
+- Strong
+    - What you should use most of the time
+- Weak
+    - Use among objects with independent lifetimes
+- Unowned
+    - Use from owned objects with the same lifetime
+**Initialization**
+- Every value must be initialized before it is used
+- Don't have to initialize variable when you declare it but you do have to 
+    initialize it before you read from the variable
+- *Initializers* handle the responsibility of fylly initializing an instance
+- Struct initialization
+    - Can't call method on ```self``` in initializer
+    - There are memberwise initializers
+    - There is always a default initializer
+```
+struct Color {
+    let red, green, blue : Double
+    init (grayScale: Double) {
+        red = grayScale
+        green = grayScale
+        blue = grayScale
+    }
+}
+```
+- Class initialization
+    - In a subclass, set its properties first before calling ```super.init()```
+    - Add ```convenience``` before convenience initializers
+    - Subclasses don't automatically inherit superclass's initializers
+NOTE: This seems tricky. I want to review this again.
+- Lazy Initialization
+    - You can have lazy properties in swift
+    - add ```@lazy``` before property declaration to denote a lazy loaded variable
+**Deinitialization**
+```
+class FileHandle {
+    deinit {
+        closeFile(file)
+    }
+}
+
+```
+- Most of the time you won't need deinitializers
+**Closures**
+- There is a single sort method that takes in a closure
+```
+var client = ["Pestov", "Buenaventura", "Sreeram", "Babbage"]
+
+clients.sort {
+    $0 < $1
+}
+```
+- Closures are ARC Objects
+    - Can create unowned reference of ```self``` in closure
