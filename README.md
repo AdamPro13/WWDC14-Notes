@@ -210,3 +210,66 @@ Q's:
 - Queues will now show what blocks have been added to the queue
 
 NOTE: Most of this had been mentioned in previous sessions
+
+##Swift Playgrounds
+**Uses:**
+- Learning
+    - Learn Swift by playing around
+    - Interactive learning
+- Code development
+    - Algorithm development
+    - Drawing code development
+    - Processing code (value transformers, image filters, etc.)
+- Experimentation
+    - Try out API
+    - No project needed
+    - Run code from a standalone doc
+    - Keep a playground in your dock for quick access
+**Working with Playgrounds**
+- *Demo*
+- Playgrounds automatically execute
+- Many values have quick looks
+    - Colors
+    - String (plain and attributed)
+    - Images
+    - VIews
+    - Arrays and dictionaries
+    - Points, rects, sizes
+    - Bezier paths
+    - URLs
+    - Classes & structs
+- Using resources in playgrounds
+    1. Show file inspector
+    2. Select location for playground resources
+        - Absolute
+        - Relative to playground
+        - Inside playground
+- Experimentation
+    - UI Development
+    - Algorithm development
+    - **XCPlayground**
+        - XCPCaptureValue 
+            - Captures values for manual value histories in teh timeline
+            - ```identifier``` identifies a collection of captured values
+    - UIView development
+    - **XCPShowView**
+        - Shows view live as playground executes and records frames for playback
+        - Identifier must be unique
+        - View can't have superview
+    - Timeline slider sets max execution duration
+- Prefer to use ```XCPSetExecutionShouldContinueIndefinitely```
+- Custom Quick Look support
+    - Only possible for NSObject subclasses
+    - Implement ```func debugQuickLookObject() -> AnyObject?```
+**Limitations**
+- Don't use for performance evalutation
+    - Instead use XCTest to create performance tests
+- Playgrounds currently can't be used for things that require:
+    - User interation
+    - Entitlements
+    - On-Device execution
+    - Your app or framework code
+**Playgrounds vs. REPL**
+- REPL can execute in your process
+    - Stop at breakpoint
+    - (lldb) repl

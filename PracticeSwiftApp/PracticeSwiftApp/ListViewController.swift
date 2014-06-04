@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class ListViewController: UIViewController
 {
     var sampleProperty: NSString?
     

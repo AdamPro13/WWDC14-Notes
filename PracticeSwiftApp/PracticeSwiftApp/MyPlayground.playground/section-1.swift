@@ -1,4 +1,5 @@
-import Cocoa
+import UIKit
+//import XCPlayground
 
 func greet(name: String, special: String) -> String {
     return "Hello \(name), today' special is \(special)."
@@ -80,7 +81,35 @@ class Shape
 var shape = Shape()
 shape.numberOfSides = 3
 
-var cheers = "Cheers! "
-var 🍻 = "Beer"
+for i in 0 .. 10
+{
+    i * i
+}
 
-println()
+let color = UIColor.blueColor()
+let attributedString = NSAttributedString(string: "my plaground", attributes: [NSForegroundColorAttributeName:color, NSFontAttributeName : UIFont.systemFontOfSize(42.0)])
+
+class DataSource: NSObject, UITableViewDataSource
+{
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int
+    {
+        return 1;
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!
+    {
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
+        cell.textLabel.text = "Text"
+        
+        if let detailTextLabel = cell.detailTextLabel
+        {
+            detailTextLabel.text = "Detail Text"
+        }
+        
+        return cell
+    }
+}
+
+let ds = DataSource()
+let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 320, height: 568))
+
