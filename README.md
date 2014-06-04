@@ -6,7 +6,7 @@ Notes from WWDC14
 # Tuesday 6/3/14
 ##What's New in Xcode 6
 
-**@IBInspectable (?) **
+** @IBInspectable (?)**
 - add on line above class declaration
 - allows UIView to be inspected in storyboard
 
@@ -155,10 +155,43 @@ beacon.minor
     - Have a clear purpose string
 NOTE: Go watch "What's new in Core Location"
 
-Maps Connect
+**Maps Connect**
 Indoor Positioning - Sign up
 http://capsconnect.apple.com
 
 Q's:
 - Does is use Apple Maps to know what building you're in?
 - Does it take things like missing floors into account (i.e. floor 13)?
+
+##Designing Intuitive User Experiences
+**Top 5 Characteristics of Intuitive Applications**
+5. Platform Saavy
+    - Be aware of other UX experiences on the platform (swipe to delete, navigation, etc.)
+    - Not arbitrary
+    - When you break convention, you need to teach your users (Onboarding)
+4. Easy to Navigate
+    - Tells you where you are
+    - Shows you where else you can go
+    - Explains what's there
+    - TIPS:
+        - Progressive disclosure
+        - Be predictable
+            - Change is good, sometimes
+        - Make selection obvious (fill in selected objects)
+        - Maximize continuity (flow)
+        - Provide hints
+        - Less is more
+            - Choosing between a lesser number of choices is better
+        - **TRY TO STAY AWAY FROM SANDWICH BUTTON**
+3. Clear
+    - Language
+        - No big words
+        - Avoid jargon
+        - Be descriptiove
+        - Be succint
+        - Avoid trancation
+        - Make text legible
+    - Icons
+    - Animations
+2. Simplified
+1. Focused
