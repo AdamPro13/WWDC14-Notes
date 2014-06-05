@@ -362,3 +362,44 @@ clients.sort {
 ```
 - Closures are ARC Objects
     - Can create unowned reference of ```self``` in closure
+##Fake it til you make it: Prototyping
+Idea -> Prototype -> App
+Fake ------> Real
+- Two Reasons to prototype:
+    1. Test ideas
+    2. Get new ideas
+- How?
+    - Make fake apps
+    - Show people
+    - Learn from their feedback
+- Three questions:
+    - What needs to be more real?
+    - What can we fake?
+    - Where will they use it?
+- When showing people:
+    - Do you know how to...?
+    - Is it easy to...?
+    - How can we make this better?
+- Who?
+    - The people your app is for
+- Don't argue with people
+
+Pictures -> Animation -> Interaction
+Keynote     Keynote      Core Animation
+
+- Start with drawings
+
+**Make Fake Apps**
+- Find an app that uses a similar view
+    - Take a screenshot
+    - Import that photo into Keynote
+    - Use a mask on another photo in order to crop it
+**Learn from Feedback**
+- What's working?
+- What isn't working?
+**Three steps for building interactive prototype**
+1. Put the picture on device
+2. Break up the picture
+3. Move the pictures when you touch them
+
+NOTE: I suggest watching this video. There were many examples in Keynote that you would have to watch.
