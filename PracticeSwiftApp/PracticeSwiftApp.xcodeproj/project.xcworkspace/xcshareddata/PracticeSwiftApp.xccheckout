@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>50B2A34D-D0C2-4654-8131-FA49D97C3C75</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PracticeSwiftApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B90A11D6-26AA-4B41-B3D1-08180A5E7238</key>
+		<string>https://github.com/AdamPro13/WWDC14-Notes.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PracticeSwiftApp/PracticeSwiftApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B90A11D6-26AA-4B41-B3D1-08180A5E7238</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AdamPro13/WWDC14-Notes.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B90A11D6-26AA-4B41-B3D1-08180A5E7238</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B90A11D6-26AA-4B41-B3D1-08180A5E7238</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WWDC14-Notes</string>
+		</dict>
+	</array>
+</dict>
+</plist>
