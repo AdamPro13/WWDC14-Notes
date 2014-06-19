@@ -113,3 +113,22 @@ class DataSource: NSObject, UITableViewDataSource
 let ds = DataSource()
 let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 320, height: 568))
 
+let anotherPoint = (2, 0)
+
+var viewController = UIViewController(nibName: nil, bundle: nil)
+var navigationController = UINavigationController(rootViewController: viewController)
+navigationController.navigationBar
+navigationController.navigationBar.backgroundColor = UIColor.purpleColor()
+viewController.view.frame = CGRect(x: 0, y: 0, width: 320, height: 568)
+viewController.view.backgroundColor = UIColor.lightGrayColor()
+let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: viewController.view.frame.width, height:44.0))
+navBar.backgroundColor = UIColor.purpleColor()
+
+
+viewController.view.addSubview(navBar)
+
+
+viewController.view
+viewController
+navigationController
+

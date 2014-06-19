@@ -12,12 +12,10 @@ class ListViewController: UIViewController
 {
     var sampleProperty: NSString?
     
-    var tableView: UITableView
+    var tableView: UITableView?
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
     {
-        self.sampleProperty = "Hello, World"
-        self.tableView = UITableView(frame: CGRectMake(0, 0, 320, 568), style: UITableViewStyle.Plain)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -25,12 +23,16 @@ class ListViewController: UIViewController
     {
         super.viewDidLoad()
         
-    }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let success() -> void {
+            
+        }
+        
+        let restClient = RestClient()
+        restClient.requestCityForString("detroit")
+        {
+            // This is the success closure
+            var i = 0
+        }
     }
     
 }

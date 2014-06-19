@@ -99,6 +99,7 @@ Sorry, I didn't take very good notes in this session. There was quite a bit of c
 - See the iBook here: https://itunes.apple.com/us/book/swift-programming-language/id881256329?mt=11
 
 ##Taking Core Location Indoors
+
 **Intro**
 - Much less accurate in Urban Canyons
     - Use Wi-Fi to help mitigate this
@@ -148,6 +149,7 @@ beacon.proximity
 beacon.major
 beacon.minor
 ```
+
 **Security Guidelines:**
 - Strict security and privacy guidelines
     - Request location only as you need it
@@ -164,6 +166,7 @@ Q's:
 - Does it take things like missing floors into account (i.e. floor 13)?
 
 ##Designing Intuitive User Experiences
+
 **Top 5 Characteristics of Intuitive Applications**
 5. Platform Saavy
     - Be aware of other UX experiences on the platform (swipe to delete, navigation, etc.)
@@ -202,16 +205,19 @@ Q's:
 
 ##Debugging in Xcode 6
 - Back trace will now go across threads
+
 **Why are the Icons Gray?**
 - Historical
 - No console interaction
 - No frame variables
+
 **Pending Blocks**
 - Queues will now show what blocks have been added to the queue
 
 NOTE: Most of this had been mentioned in previous sessions
 
 ##Swift Playgrounds
+
 **Uses:**
 - Learning
     - Learn Swift by playing around
@@ -225,6 +231,7 @@ NOTE: Most of this had been mentioned in previous sessions
     - No project needed
     - Run code from a standalone doc
     - Keep a playground in your dock for quick access
+
 **Working with Playgrounds**
 - *Demo*
 - Playgrounds automatically execute
@@ -261,6 +268,7 @@ NOTE: Most of this had been mentioned in previous sessions
 - Custom Quick Look support
     - Only possible for NSObject subclasses
     - Implement ```func debugQuickLookObject() -> AnyObject?```
+
 **Limitations**
 - Don't use for performance evalutation
     - Instead use XCTest to create performance tests
@@ -269,6 +277,7 @@ NOTE: Most of this had been mentioned in previous sessions
     - Entitlements
     - On-Device execution
     - Your app or framework code
+
 **Playgrounds vs. REPL**
 - REPL can execute in your process
     - Stop at breakpoint
@@ -276,10 +285,12 @@ NOTE: Most of this had been mentioned in previous sessions
 - *there was more on playgrounds that I didn't get in time*
 
 ##Intermediate Swift
+
 **Optionals**
 - Why?
     - EXAMPLE: If user is inputing age, you need to convert to int. If it's not
         convertible, what would it return? Too many nil/null/NSNotFound values
+
 **Non-optional types**
 - Strings, ints, floats, etc. can't be ```nil```
 ```
@@ -288,6 +299,7 @@ for (index, value) in enumerate(array) {
 ```
 - NOTE: ```enumerate()``` will return a tuple with index & value
 - Forcing unwrapping will result in run-time error
+
 **Optional Chaining**
 ```
 addressNumber = paul.residence?.addess?.buildingNumber?.toInt()
@@ -297,6 +309,7 @@ if let addressNumber = paul.residence?.addess?.buildingNumber?.toInt() {
     addToDatabase("Paul", addressNumber)
 }
 ```
+
 **Memory Management**
 - Swift built on ARC
 - No need for pointer syntax or ```alloc```
@@ -314,6 +327,7 @@ if let addressNumber = paul.residence?.addess?.buildingNumber?.toInt() {
     - Use among objects with independent lifetimes
 - Unowned
     - Use from owned objects with the same lifetime
+
 **Initialization**
 - Every value must be initialized before it is used
 - Don't have to initialize variable when you declare it but you do have to 
@@ -341,6 +355,7 @@ NOTE: This seems tricky. I want to review this again.
 - Lazy Initialization
     - You can have lazy properties in swift
     - add ```@lazy``` before property declaration to denote a lazy loaded variable
+
 **Deinitialization**
 ```
 class FileHandle {
@@ -394,12 +409,106 @@ Keynote     Keynote      Core Animation
     - Take a screenshot
     - Import that photo into Keynote
     - Use a mask on another photo in order to crop it
+
 **Learn from Feedback**
 - What's working?
 - What isn't working?
+
 **Three steps for building interactive prototype**
 1. Put the picture on device
 2. Break up the picture
 3. Move the pictures when you touch them
 
 NOTE: I suggest watching this video. There were many examples in Keynote that you would have to watch.
+
+##What's New in Table and Collection Views
+
+**Table View**
+- Dynamic Type adoption
+    - In settings, allows a user to change the font size across the entire OS
+    - Comes free with built-in labels
+    ```+ [UIFont preferredFontForTextStle:]``` for custom labels
+    - Dynamic Row Heights
+        - Property ```rowHeight```
+            - This can affect perf
+        - Delegate ```tableView:heightForRowAtIndexPath:```
+        - Cell 
+    - iOS 8 Sizing Flow
+        - Create Cell -> Size cell -> Update contentSize -> Display Cell
+        - Can use autolayout
+        - Manually size using ```- sizeThatFits:```
+
+- Self-sizing cells
+    - Set ```tableView.estimatedRowHeight```
+    - Set ```rowHeight``` to automatically adjusting
+
+**Collection View**
+- Self-sizing cells
+    - Available in flow layout
+    - Cell sizing strategies:
+        - Classic
+        - Self-sizing cells
+            - Use contraints or ```sizeThatFits:```
+        - Full Control
+            - Use ```preferredLayoutAttributesFilt...```
+    ```@property (nonatomic, strong) CGSize estimatedItemSize;```
+        - Equivalent to estimated row height in table views
+        - Set it to a non-zero CGSize
+
+- Smart Invalidation
+```
+- prepareLayout
+- collectionViewCOntentSize
+- layoutAttributesForElementsInRect:
+```
+All other calls:
+```
+- invalidateLayout
+- prepareLayout
+```
+... the cycle continues
+
+- How to build high-performance layouts
+    - Be lazy (smart)
+    - Recompute only what you !
+    - Use colection view invalidation contects
+    - New in iOS 7
+    - Provide fine-grain info to you layout in invalidation sitatuions
+    - Flow layout is already using invalidation contects in rotations
+- Invalidation Contexts
+    - Define your own invalidation context class
+    ```+ (Class)invalidationContextClass```
+    - Invalidate with contectual info
+    ```- (void)invalidateLayoutWithContext:```
+    - Override point for bounds change
+    ```- (UICollectionViewLayoutInvalidation)...```
+##Core Image Filters
+
+**CIKernel**
+- Represents a program written in Core Image's kernel language
+
+**CIFilter**
+- Has mutable input parameters
+- Uses one or more CIKernels to make a new image based on inputs
+
+**CIImage**
+- An IMmutable object that represents the recipe for an image
+
+**CIContext**
+-
+
+- Need to create CIFilter subclass
+
+- Create input CIImages
+- Subclass CIFilter
+- Create Kernel
+- 
+- Get output CIImage
+- Use CICOntext to render output inmage
+
+- 115 existing CoreImage filters (78 purely change color, 7 convolute)
+
+On iOS
+- CIColorKernel & CIWarpKernel
+
+*This guy talks extremely fast. I can't keep up with the notes.*
